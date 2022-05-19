@@ -46,14 +46,11 @@ const Home: NextPage = () => {
   };
 
   const uploadImage = () => {
-    selectFiles(
-      { accept: "image/*", multiple: false },
-      (outcome: FileUpload) => {
-        setImageList((l) => {
-          return [...l, outcome.source as unknown as String];
-        });
-      }
-    );
+    selectFiles({ accept: "image/*", multiple: false }, (outcome) => {
+      setImageList((l) => {
+        return [...l, (outcome as FileUpload).source as unknown as string];
+      });
+    });
   };
 
   useEffect(() => {
